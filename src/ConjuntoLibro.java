@@ -51,34 +51,27 @@ public class ConjuntoLibro {
     }
     public Libro obtenerMejorCalificador(){
         float mayor=0;
+        int pos=0;
         for(int i=0;i<coleccion.length;i++){
-            if(this.coleccion[i].getCalificacion()>mayor){
+            if(this.coleccion[i]!= null && this.coleccion[i].getCalificacion()>mayor){
                 mayor=this.coleccion[i].getCalificacion();
-            }
+                pos=i;
+            } 
         }
         
-        for(int i=0;i<coleccion.length;i++){
-            if(this.coleccion[i].getCalificacion()==mayor){
-                return coleccion[i];
-            }
-        }
-        return null;
-      
+      return coleccion[pos];
     }
     public Libro obtenerPeorCalificado(){
         float menor=11;
+        int pos=0;
         for(int i=0;i<coleccion.length;i++){
-            if(this.coleccion[i].getCalificacion()<menor){
+            if(this.coleccion[i]!= null && this.coleccion[i].getCalificacion()<menor){
                 menor=this.coleccion[i].getCalificacion();
+                pos=i;
             }
         }
         
-        for(int i=0;i<coleccion.length;i++){
-            if(this.coleccion[i].getCalificacion()==menor){
-                return coleccion[i];
-            }
-        }
-        return null;
+        return coleccion[pos];
     }
     
     public String mostrarLibro(int i){
